@@ -16,25 +16,25 @@ public class Transaction {
     @Column(name = "module")
     private String module;
 
-    @Column(name = "tran_Type")
+    @Column(name = "tran_type")
     private String tranType;
 
     @Column(name = "cif")
     private String cif;
 
-    @Column(name = "tran_Date")
+    @Column(name = "tran_date")
     private Date tranDate;
 
     @Column(name = "amount")
-    private int amount;
+    private double amount;
 
     @Column(name = "status")
     private String status;
 
-    @Column(name = "debit_Acct")
+    @Column(name = "debit_acct")
     private String debitAcct;
 
-    @Column(name = "credit_Acct")
+    @Column(name = "credit_acct")
     private String creditAcct;
 
     @Column(name = "remark")

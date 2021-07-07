@@ -17,8 +17,8 @@ public class TransactionService {
     @Autowired
     private TransactionRepository transactionRepository;
 
-    public Integer getTransactionRate() {
-        return transactionRepository.getTransactionRate();
+    public Integer getTransactionRatio() {
+        return transactionRepository.getTransactionRatio();
     }
 
 //    public Integer getTransactionSum() {
@@ -36,6 +36,10 @@ public class TransactionService {
     public Transaction save(Transaction transaction) {
         return transactionRepository.save(transaction);
     }
+
+    public List<CustomerSumAmount> getTop(){
+        return transactionRepository.getTop5();
+    };
 
     public Integer countAllByModuleAndTranTypeAndStatusAndTranDateBetween(
             String module,

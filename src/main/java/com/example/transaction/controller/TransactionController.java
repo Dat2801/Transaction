@@ -2,7 +2,6 @@ package com.example.transaction.controller;
 
 import com.example.transaction.model.CustomerSumAmount;
 import com.example.transaction.model.Transaction;
-import com.example.transaction.service.CustomerSumAmountService;
 import com.example.transaction.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,17 +20,14 @@ public class TransactionController {
     @Autowired
     private TransactionService transactionService;
 
-    @Autowired
-    private CustomerSumAmountService customerSumAmountService;
-
 //    @GetMapping("/sum")
 //    public ResponseEntity<Integer> getSum() {
 //        return new ResponseEntity<>(transactionService.getTransactionSum(), HttpStatus.OK);
 //    }
 
-    @GetMapping("/rate")
-    public ResponseEntity<Integer> getRate() {
-        return new ResponseEntity<>(transactionService.getTransactionRate(), HttpStatus.OK);
+    @GetMapping("/getRatio")
+    public ResponseEntity<Integer> getRatio() {
+        return new ResponseEntity<>(transactionService.getTransactionRatio(), HttpStatus.OK);
     }
 
 //    @GetMapping("/cif")
@@ -39,17 +35,17 @@ public class TransactionController {
 //        return new ResponseEntity<>(transactionService.getSumCIF(), HttpStatus.OK);
 //    }
 
-    @GetMapping("/saving")
+    @GetMapping("/getSaving")
     public ResponseEntity<Integer> getSumSaving() {
         return new ResponseEntity<>(transactionService.getSumSaving(), HttpStatus.OK);
     }
 
-    @GetMapping("/top")
+    @GetMapping("/getTop")
     public ResponseEntity<List<CustomerSumAmount>> getTop() {
-        return new ResponseEntity<>(customerSumAmountService.getTop(), HttpStatus.OK);
+        return new ResponseEntity<>(transactionService.getTop(), HttpStatus.OK);
     }
 
-    @PostMapping("/insert")
+    @PostMapping("/getInsert")
     @ResponseBody
     public ResponseEntity<Transaction> getInsertData(@RequestBody Transaction transaction)  {
         return new ResponseEntity<>(transactionService.save(transaction), HttpStatus.CREATED);
